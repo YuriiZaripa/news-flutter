@@ -28,6 +28,7 @@ final class ArticleModel  {
     return converter.getLocaleDate(dateString);
   }
 
+  //TODO зачем это тут? мы это не используем
   String getParsedShortContent() {
     return parse(shortContent).documentElement!.text;
   }

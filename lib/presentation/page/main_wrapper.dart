@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/dependency_injection.dart' as di;
-import 'package:news/domain/enums/enuma.dart';
+import 'package:news/domain/enums/enum.dart';
 import 'package:news/presentation/cubit/main_cubit.dart';
 import 'package:news/presentation/routes/router.dart';
 

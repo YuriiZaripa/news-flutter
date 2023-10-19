@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:news/constants/network_constants.dart';
 import 'package:news/data/network_service/network_service.dart';
 
 Future<Response?> get( 
@@ -11,9 +10,6 @@ Future<Response?> get(
   bool ignoreToken = false,
 }) async {
   options?.headers ??= {};
-  if (!ignoreToken) {
-    options?.headers!["Authorization"] = userToken;
-  }
   options?.headers!["Timezone"] = DateTime.now().timeZoneName;
   Response response = await NetworkService.instance.dio.get(path,
       queryParameters: queryParameters,

@@ -1,45 +1,23 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:news/data/local_storage/app_database.dart';
-import 'package:news/domain/enums/enuma.dart';
+import 'package:news/domain/enums/enum.dart';
 
 part 'main_state.dart';
 
 class MainCubit extends Cubit<MainState> {
   MainCubit() : super(const MainState());
 
-//TODO а это что? если это дебаг то его не нужно заливать на гит, а нужно удалять после того как он уже не нужен
-  void justDoIt() {
-    emit(_firstTime());
-  }
-
-  MainState _firstTime() => state.copyWith(
-    status: BlocStatus.loaded,
-    isFirstLaunch: true,
-  );
-
   Future<void> init() async {
     _loadingState();
-      try {
-        bool isFirstLaunch = await AppDatabase.instance.isFirstLaunch();
-        emit(
-          MainState(
-            status: BlocStatus.loaded,
-            isFirstLaunch: isFirstLaunch,
-          ),
-        );
-      } catch (e) {
-        _onError(e);
-      }
+    bool isFirstLaunch = await AppDatabase.instance.isFirstLaunch();
+    emit(
+      MainState(
+        status: BlocStatus.loaded,
+        isFirstLaunch: isFirstLaunch,
+      ),
+    );
   }
 
   MainState _loadingState() => state.copyWith(status: BlocStatus.loading);
-
-  MainState _onError(Object error) {
-    return MainState(
-      status: BlocStatus.error,
-      error: error,
-      isFirstLaunch: state.isFirstLaunch,
-    );
-  }
 }

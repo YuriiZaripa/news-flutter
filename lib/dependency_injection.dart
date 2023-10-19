@@ -1,10 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:news/data/remote_storage/article_service.dart';
 import 'package:news/data/remote_storage/onboarding_service.dart';
-import 'package:news/data/repositoryes/article_repository.dart';
-import 'package:news/data/repositoryes/onboarding_repository.dart';
-import 'package:news/domain/repositories/i_article_repository.dart';
-import 'package:news/domain/repositories/onbording.reposytory.dart';
+import 'package:news/data/repository/article_repository.dart';
+import 'package:news/data/repository/onboarding_repository.dart';
+import 'package:news/domain/repository/i_article_repository.dart';
+import 'package:news/domain/repository/onbording_repository.dart';
 import 'package:news/domain/usecases/article/get_articles_usecase.dart';
 import 'package:news/domain/usecases/onboarding/get_onboarding_entities_usecase.dart';
 import 'package:news/presentation/cubit/main_cubit.dart';

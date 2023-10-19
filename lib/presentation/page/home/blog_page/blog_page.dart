@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/dependency_injection.dart' as di;
-import 'package:news/domain/enums/enuma.dart';
+import 'package:news/domain/enums/enum.dart';
 import 'package:news/presentation/page/home/blog_page/cubit/article_cubit.dart';
 import 'package:news/presentation/page/home/blog_page/widgets/one_article_containet.dart';
 import 'package:news/presentation/theme/app_colors.dart';
@@ -25,7 +25,7 @@ class _BlogPageState extends State<BlogPage> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    articleCubit.init();
+    articleCubit.getAllArticles();
   }
 
   @override
@@ -39,8 +39,9 @@ class _BlogPageState extends State<BlogPage> {
     return BlocBuilder<ArticleCubit, ArticleState>(
       bloc: articleCubit,
       builder: (context, state) {
-        if (state.status == BlocStatus.loaded ||
-            state.status == BlocStatus.loading) { //TOOD не вижу лоадера для стейта лоадинг
+        if (state.status == BlocStatus.loading) {
+          return const Center(child: CircularProgressIndicator(),);
+        } else if (state.status == BlocStatus.loaded) {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: AppColors.white,

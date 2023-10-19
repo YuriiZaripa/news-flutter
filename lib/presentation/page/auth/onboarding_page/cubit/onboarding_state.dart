@@ -9,12 +9,12 @@ class OnboardingState extends Equatable {
 
   final BlocStatus status;
   final List<OnboardingModel> onboardingEntities;
-  final Object? error;
+  final String? error;
 
   OnboardingState copyWith({
     BlocStatus? status,
     List<OnboardingModel>? onboardingEntities,
-    Object? error,
+    String? error,
   }) {
     return OnboardingState(
       status: status ?? this.status,
@@ -29,6 +29,4 @@ class OnboardingState extends Equatable {
         onboardingEntities,
         error,
       ];
-
-  //TODO зачем тут лищние отступы?
 }

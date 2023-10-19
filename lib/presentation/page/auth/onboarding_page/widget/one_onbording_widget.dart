@@ -3,9 +3,8 @@ import 'package:news/domain/models/onboarding/onboarding_model.dart';
 import 'package:news/presentation/theme/app_colors.dart';
 import 'package:news/presentation/theme/app_fonts.dart';
 
-//TODO  в конце пейдж можно писать только страницам, а это виджет - исправь
-class OneOnboardingPage extends StatelessWidget {
-  const OneOnboardingPage({
+class OneOnboardingWidget extends StatelessWidget {
+  const OneOnboardingWidget({
     super.key,
     required this.onboarding,
   });

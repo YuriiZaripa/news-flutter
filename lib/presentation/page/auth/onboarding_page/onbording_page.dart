@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/dependency_injection.dart' as di;
 import 'package:news/presentation/page/auth/onboarding_page/cubit/onboarding_cubit.dart';
-import 'package:news/presentation/page/auth/onboarding_page/widget/one_onbording_page.dart';
+import 'package:news/presentation/page/auth/onboarding_page/widget/one_onbording_widget.dart';
 import 'package:news/presentation/routes/router.dart';
 import 'package:news/presentation/theme/app_colors.dart';
 import 'package:news/presentation/theme/app_fonts.dart';
@@ -24,8 +24,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   void initState() {
-    onboardingCubit.getOnboarding( //TODO зачем перенос тут?
-    );
+    onboardingCubit.getOnboarding();
     _controller = PageController();
     super.initState();
   }
@@ -33,10 +32,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
 
-    return BlocBuilder<OnboardingCubit, OnboardingState>( //TODO а если сервис онбоардинга упадет то что будетт тут? и где обработка стейтов???
+    return BlocBuilder<OnboardingCubit, OnboardingState>(
       bloc: onboardingCubit,
       builder: (context, state) {
-        if (state.onboardingEntities.isEmpty) {
+        if (state.error != null) {
+          context.replaceRoute(const BlogRoute());
+          return const Center(child: Text('Упс!'),);
+        } else if (state.onboardingEntities.isEmpty) {
           return const SizedBox();
         } else {
           return Scaffold(
@@ -66,7 +68,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(24),
                               ),
-                              child: OneOnboardingPage(
+                              child: OneOnboardingWidget(
                                 onboarding: state.onboardingEntities[index],
                               ),
                             ),
@@ -118,7 +120,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               curve: Curves.ease,
                             );
                           } else {
-                            
                             context.replaceRoute(const BlogRoute());
                           }
                         },

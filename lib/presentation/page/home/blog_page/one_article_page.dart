@@ -17,6 +17,9 @@ class OneArticlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO а где кнопка назад? немного изменила ее на дизайне
+    //TODO также картинку не видно за статус баром - где сейф ареа??
+    //TOOD также где стили для html?
     return Scaffold(
       body: Column(
         children: [

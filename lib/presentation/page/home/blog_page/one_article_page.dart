@@ -34,58 +34,61 @@ class OneArticlePage extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Image(
-              image: NetworkImage(
-                article.image.link,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Image(
+                image: NetworkImage(
+                  article.image.link,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Text(
-                    article.title,
-                    style: AppFonts.nunito24w700,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundImage: const AssetImage(
-                          AppImages.emptyAvatar,
-                        ),
-                        backgroundColor: AppColors.backgroundAuthorAvatar,
-                        foregroundImage: article.author.photo == null
-                            ? null
-                            : NetworkImage(article.author.photo!),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                          '${article.author.name} | ${article.getFormattedDate()}',
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      article.title,
+                      style: AppFonts.nunito24w700,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundImage: const AssetImage(
+                            AppImages.emptyAvatar,
                           ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Html(
-                    data: article.shortContent,
-                    style: {
-                      "p": AppHttpFonts.blog,
-                    },
-                  ),
-                ],
+                          backgroundColor: AppColors.backgroundAuthorAvatar,
+                          foregroundImage: article.author.photo == null
+                              ? null
+                              : NetworkImage(article.author.photo!),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          '${article.author.name} | ${article.getFormattedDate()}',
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Html(
+                      data: article.shortContent,
+                      style: {
+                        "p": AppHttpFonts.blog,
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

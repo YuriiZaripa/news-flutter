@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:news/constants/network_constants.dart';
 import 'package:news/data/network_service/network_service.dart';
 
-Future<Response?> get(
+Future<Response?> get( 
   String path, {
   Map<String, dynamic>? queryParameters,
   Options? options,

@@ -5,6 +5,8 @@ enum BlocStatus {
   error,
 }
 
+//TODO название файла с ошибкой нужно исправить
+//TODO зачем тут енам InternetConnectionStatus и CustomButtonType???
 enum InternetConnectionStatus {
   connected,
   disconnected,

@@ -17,10 +17,11 @@ class OnboardingCubit extends Cubit<OnboardingState> {
 
   Future getOnboarding() async {
     emit(_loadingState());
+    //TODO какой трай кетч?? тут ничего не упадет, потому что трай кетч в сервисе прописан - исправь нормально во всех кьюбитах
     try {
       final result = await _getOnboardingEntitiesUsecase();
       emit(OnboardingState(
-        onboardingEntities: result.onboarding!,
+        onboardingEntities: result.onboarding!, //упадет только тут потому что ты сказал что будет не нал, хотя может быть нал
         status: BlocStatus.loaded,
       ));
     } catch (error) {

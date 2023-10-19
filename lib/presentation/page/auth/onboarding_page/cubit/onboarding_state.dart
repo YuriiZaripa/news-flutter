@@ -30,5 +30,5 @@ class OnboardingState extends Equatable {
         error,
       ];
 
-  
+  //TODO зачем тут лищние отступы?
 }

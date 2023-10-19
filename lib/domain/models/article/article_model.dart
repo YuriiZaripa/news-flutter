@@ -10,7 +10,7 @@ final class ArticleModel  {
   final String title;
   final String? shortContent;
   final ImageModel image;
-  final String dateCreated;
+  final String dateCreated; //TODO если это дата, то лучше тут писать тип DateTime  и менять при парсинге в фром джейсон
   final Author author;
 
   const ArticleModel({

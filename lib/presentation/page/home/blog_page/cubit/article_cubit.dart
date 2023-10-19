@@ -13,6 +13,8 @@ class ArticleCubit extends Cubit<ArticleState> {
     this._getArticlesUseCase,
   ) : super(const ArticleState());
 
+
+//TOOD  а зачем тут три метода чтоб вызвать один???? 
   Future init() async {
     emit(_loadingState());
     await _getAllArticles();
@@ -41,6 +43,7 @@ class ArticleCubit extends Cubit<ArticleState> {
         status: BlocStatus.loading,
       );
 
+//TODO  почему в одном кьюбите ерр принимает сттринг а в другом обжект? исправь везде на стринг
   ArticleState _onError(String? error) {
     return state.copyWith(
       status: BlocStatus.error,

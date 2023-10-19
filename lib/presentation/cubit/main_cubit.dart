@@ -8,6 +8,7 @@ part 'main_state.dart';
 class MainCubit extends Cubit<MainState> {
   MainCubit() : super(const MainState());
 
+//TODO а это что? если это дебаг то его не нужно заливать на гит, а нужно удалять после того как он уже не нужен
   void justDoIt() {
     emit(_firstTime());
   }

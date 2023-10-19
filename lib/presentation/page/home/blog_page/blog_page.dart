@@ -40,7 +40,7 @@ class _BlogPageState extends State<BlogPage> {
       bloc: articleCubit,
       builder: (context, state) {
         if (state.status == BlocStatus.loaded ||
-            state.status == BlocStatus.loading) {
+            state.status == BlocStatus.loading) { //TOOD не вижу лоадера для стейта лоадинг
           return Scaffold(
             appBar: AppBar(
               backgroundColor: AppColors.white,

@@ -3,7 +3,7 @@ part of 'main_cubit.dart';
 class MainState extends Equatable {
   final BlocStatus status;
   final bool isFirstLaunch;
-  final dynamic nextPage;
+  final dynamic nextPage; //TODO ты его нигде не используешь - зачем тут это поле? 
   final Object? error;
   
   const MainState({
@@ -13,6 +13,7 @@ class MainState extends Equatable {
     this.error,
   });
 
+//TODO где эрор???
   MainState copyWith({
     BlocStatus? status,
     bool? isFirstLaunch,
@@ -26,6 +27,7 @@ class MainState extends Equatable {
     );
   }
 
+//TODO почему не все поля в пропсах??
   @override
   List<Object> get props => [
       status, 

@@ -4,7 +4,7 @@ import 'dart:convert';
 final class OnboardingModel {
   final String title;
   final String description;
-  final ImageModel? image;
+  final ImageModel? image; 
 
   OnboardingModel({
     required this.title,

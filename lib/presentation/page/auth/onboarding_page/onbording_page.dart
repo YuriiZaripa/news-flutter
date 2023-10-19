@@ -24,7 +24,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   void initState() {
-    onboardingCubit.getOnboarding(
+    onboardingCubit.getOnboarding( //TODO зачем перенос тут?
     );
     _controller = PageController();
     super.initState();
@@ -33,7 +33,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
 
-    return BlocBuilder<OnboardingCubit, OnboardingState>(
+    return BlocBuilder<OnboardingCubit, OnboardingState>( //TODO а если сервис онбоардинга упадет то что будетт тут? и где обработка стейтов???
       bloc: onboardingCubit,
       builder: (context, state) {
         if (state.onboardingEntities.isEmpty) {

@@ -15,6 +15,7 @@ class ArticleCubit extends Cubit<ArticleState> {
 
   Future getAllArticles() async {
     final result = await _getArticlesUseCase();
+    //TODO аналогично нету обработки ошибки с бека и лоадера
     emit(
       ArticleState(
         status: BlocStatus.loaded,

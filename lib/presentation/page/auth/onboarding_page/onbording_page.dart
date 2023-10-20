@@ -43,6 +43,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         }
       },
       builder: (context, state) {
+        //TODO  не хватае лоадера если стейт лоадинг
         if (state.onboardingEntities.isEmpty) {
           return const SizedBox();
         } else {

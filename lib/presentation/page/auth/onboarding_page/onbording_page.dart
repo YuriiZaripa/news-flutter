@@ -43,8 +43,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
         }
       },
       builder: (context, state) {
-        //TODO  не хватае лоадера если стейт лоадинг
-        if (state.onboardingEntities.isEmpty) {
+        if (state.status == BlocStatus.loading &&
+            state.onboardingEntities.isEmpty) {
           return const SizedBox();
         } else {
           return Scaffold(

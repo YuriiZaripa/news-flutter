@@ -36,6 +36,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
       bloc: onboardingCubit,
       builder: (context, state) {
         if (state.error != null) {
+          //TODO в билдере мы не делаем переход по роутам, для этого есть листенер 
+          //TODO и где обработка лоадинг стейта
           context.replaceRoute(const BlogRoute());
           return const Center(child: Text('Упс!'),);
         } else if (state.onboardingEntities.isEmpty) {

@@ -45,7 +45,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
       builder: (context, state) {
         if (state.status == BlocStatus.loading &&
             state.onboardingEntities.isEmpty) {
-          return const SizedBox();
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         } else {
           return Scaffold(
             body: SafeArea(

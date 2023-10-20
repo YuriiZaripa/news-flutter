@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/dependency_injection.dart' as di;
+import 'package:news/domain/enums/enum.dart';
 import 'package:news/presentation/page/auth/onboarding_page/cubit/onboarding_cubit.dart';
 import 'package:news/presentation/page/auth/onboarding_page/widget/one_onbording_widget.dart';
 import 'package:news/presentation/routes/router.dart';
@@ -31,16 +32,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-
-    return BlocBuilder<OnboardingCubit, OnboardingState>(
+    return BlocConsumer<OnboardingCubit, OnboardingState>(
       bloc: onboardingCubit,
-      builder: (context, state) {
-        if (state.error != null) {
-          //TODO в билдере мы не делаем переход по роутам, для этого есть листенер 
-          //TODO и где обработка лоадинг стейта
+      listener: (context, state) {
+        if (state.status == BlocStatus.error) {
           context.replaceRoute(const BlogRoute());
-          return const Center(child: Text('Упс!'),);
-        } else if (state.onboardingEntities.isEmpty) {
+        } else if (state.status == BlocStatus.loaded &&
+            state.onboardingEntities.isEmpty) {
+          context.replaceRoute(const BlogRoute());
+        }
+      },
+      builder: (context, state) {
+        if (state.onboardingEntities.isEmpty) {
           return const SizedBox();
         } else {
           return Scaffold(

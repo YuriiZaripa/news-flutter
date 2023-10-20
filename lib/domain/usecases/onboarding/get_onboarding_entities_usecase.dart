@@ -1,5 +1,5 @@
 import 'package:news/domain/models/onboarding/onboarding_model.dart';
-import 'package:news/domain/repository/onbording_repository.dart';
+import 'package:news/domain/repository/i_onbording_repository.dart';
 
 abstract interface class IGetOnboardingEntitiesUsecase {
   Future<({bool isSuccess, List<OnboardingModel>? onboarding, String? error})>

@@ -4,7 +4,7 @@ import 'package:news/data/remote_storage/onboarding_service.dart';
 import 'package:news/data/repository/article_repository.dart';
 import 'package:news/data/repository/onboarding_repository.dart';
 import 'package:news/domain/repository/i_article_repository.dart';
-import 'package:news/domain/repository/onbording_repository.dart';
+import 'package:news/domain/repository/i_onbording_repository.dart';
 import 'package:news/domain/usecases/article/get_articles_usecase.dart';
 import 'package:news/domain/usecases/onboarding/get_onboarding_entities_usecase.dart';
 import 'package:news/presentation/cubit/main_cubit.dart';

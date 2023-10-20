@@ -1,6 +1,6 @@
 import 'package:news/data/remote_storage/onboarding_service.dart';
 import 'package:news/domain/models/onboarding/onboarding_model.dart';
-import 'package:news/domain/repository/onbording_repository.dart';
+import 'package:news/domain/repository/i_onbording_repository.dart';
 
 final class OnboardingRepository implements IOnboardingRepository {
   final OnboardingService _service;

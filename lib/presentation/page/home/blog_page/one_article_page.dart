@@ -29,8 +29,6 @@ class OneArticlePage extends StatelessWidget {
         },
         child: SvgPicture.asset(
           AppIcons.backButton,
-          height: 40, //TODO по дизайну размер иконки 24, 40 это размер кнопки
-          width: 40,
         ),
       ),
       body: SafeArea(

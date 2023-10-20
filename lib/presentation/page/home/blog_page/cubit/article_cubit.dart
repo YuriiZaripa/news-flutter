@@ -15,12 +15,21 @@ class ArticleCubit extends Cubit<ArticleState> {
 
   Future getAllArticles() async {
     final result = await _getArticlesUseCase();
-    //TODO аналогично нету обработки ошибки с бека и лоадера
-    emit(
-      ArticleState(
-        status: BlocStatus.loaded,
-        allArticles: result.articles,
-      ),
-    );
+    
+    if (result.isSuccess) {
+      emit(
+        ArticleState(
+          status: BlocStatus.loaded,
+          allArticles: result.articles,
+        ),
+      );
+    } else {
+      emit(
+        ArticleState(
+          status: BlocStatus.error,
+          error: result.error,
+        ),
+      );
+    }
   }
 }

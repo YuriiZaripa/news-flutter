@@ -17,11 +17,22 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   Future getOnboarding() async {
     emit(_loadingState());
     final result = await _getOnboardingEntitiesUsecase();
-    //TODO а где обработка ошибки? если с бека придет ошибка то почему стейт лоадед?
-    emit(OnboardingState(
-      onboardingEntities: result.onboarding ?? result.onboarding!,
-      status: BlocStatus.loaded,
-    ));
+
+    if (result.isSuccess) {
+      emit(
+        OnboardingState(
+          onboardingEntities: result.onboarding ?? result.onboarding!,
+          status: BlocStatus.loaded,
+        ),
+      );
+    } else {
+      emit(
+        OnboardingState(
+          status: BlocStatus.error,
+          error: result.error,
+        ),
+      );
+    }
   }
 
   OnboardingState _loadingState() => state.copyWith(
